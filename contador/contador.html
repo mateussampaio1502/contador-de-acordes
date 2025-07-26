@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Contador</title>
+</head>
+<body>
+    <div id="background">
+        <h1>Contador de acordes</h1>
+        <div id="counter">
+            <div id="plus">
+
+            </div>
+            <div id="minus">
+
+            </div>
+        </div>
+    </div>
+    <div id="display">
+        <p>Contagem: <span id="value">0</span></p> </p>
+    </div>
+    <footer id="footer">
+        <p>Mateus Sampaio &copy; 2025</p>
+        <button id="reset">Resetar</button>
+    </footer>
+
+    <script>
+        let count = 0;
+
+        const plusBtn = document.getElementById('plus');
+        const minusBtn = document.getElementById('minus');
+        const resetBtn = document.getElementById('reset');
+        const value = document.getElementById('value');
+
+        function updateDisplay(){
+            value.textContent = count;
+        }
+
+        plusBtn.addEventListener('click', () => {
+            count++;
+            updateDisplay();
+        })
+
+        minusBtn.addEventListener('click', () => {
+            if (count <= 0){
+                window.alert("Não é Possível contar números negativos!")
+            }
+            else{
+            count--;
+            updateDisplay();
+            }
+        })
+
+        resetBtn.addEventListener('click', () => {
+            count = 0;
+            updateDisplay();
+        })
+
+        updateDisplay()
+    </script>
+</body>
+</html>
